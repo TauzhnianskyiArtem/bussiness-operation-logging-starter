@@ -1,4 +1,4 @@
-package com.iprody.inquiry.service.logging;
+package ua.artem.logging;
 
 import org.slf4j.event.Level;
 

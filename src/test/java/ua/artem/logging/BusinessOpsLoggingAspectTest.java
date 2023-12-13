@@ -1,4 +1,4 @@
-package com.iprody.inquiry.service.logging;
+package ua.artem.logging;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;

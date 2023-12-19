@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id 'checkstyle'
     id 'maven-publish'
     id 'org.springframework.boot' version '3.1.4'
     id 'io.spring.dependency-management' version '1.1.3'
@@ -27,14 +26,26 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
+bootJar {
+    enabled = false
+}
+jar {
+    enabled = true
+}
+
 tasks.named('test') {
     useJUnitPlatform()
 }
 
 publishing {
     publications {
-        release(MavenPublication) {
+        maven(MavenPublication) {
             from components.java
+            versionMapping {
+                allVariants {
+                    fromResolutionResult()
+                }
+            }
         }
     }
 }
